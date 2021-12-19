@@ -28,8 +28,15 @@
       <p class="lead">A simple calendar app for scheduling your work day</p>
       <p id="currentDay" class="lead"></p>
     </header>
-    <div class="container">
-      <!-- Timeblocks go here -->
+    <!-- 9am -->
+    <div class="container d-flex flex-column">
+      <div class="time-block d-flex" id="hour">
+        <p class="hour col-1">9am</p>
+        <div class="form-group mb-0 p-0 col-10">
+          <textarea name="task-input" id="task-input" cols="30" rows="2" class="description form-control"></textarea>
+        </div>
+        <button type="button" class="saveBtn col-1">S</button>
+      </div>
     </div>
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
