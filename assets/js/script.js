@@ -6,8 +6,13 @@
 // TODO: save text input into local storage 
     // recognize text and save it with the button on the right
 $(".saveBtn").on("click", function() {
-    btnId = $(this).attr("data-id");
+    // retrieve button's data-id value
+    var btnId = $(this).attr("data-id");
     console.log(btnId);
+    // match with textarea's data-id value
+    var textareaId = "#task-input-" + btnId;
+    var saveText = $(textareaId).val();
+    console.log(saveText);
 });
 
 
