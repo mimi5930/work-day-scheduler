@@ -51,32 +51,27 @@ var loadEvents = function() {
         var eventText = events[key][0].text;
         $(eventId).val(eventText);
     }
-    // $(events).each(function(key, value) {
-    //     var eventId = "#event-input-" + events[key][0].id;
-    //     console.log(eventId);
-    //     $(eventId).val(value);
-    // })
-    // // loop through and fill textareas with values
-    // for (i = 0; i < Object.keys(events).length; i++ ) {
-    //     var eventId = "#event-input-" + events[i][0].id;
-    //     if (eventId === undefined) {
-    //         console.log("oops!");
-    //     }
-    //     var eventText = events[i][0].text;
-    //     $(eventId).val(eventText);
-    // }
 }
 
-
+// get current time
 var currentHour = moment().get("hour");
-console.log(currentHour);
-var hourBlock = $("textarea").attr("data-time");
-console.log(hourBlock);
 
-for (i = 0; i < 8; i++);
-// TODO: color code time intervals based on current time
-    // css has the proper stylings
-    // moment.js functionality?
+// cycle through textareas to compare times with current time
+$("textarea").each(function() {
+   var hourBlock = $(this).attr("data-time");
+   if (hourBlock < currentHour) {
+       $(this).removeClass("present future")
+       .addClass("past");
+   }
+   else if(hourBlock == currentHour) {
+       $(this).removeClass("past future")
+       .addClass("present");
+   }
+   else if (hourBlock > currentHour) { 
+       $(this).removeClass("past present")
+       .addClass("future");
+   }
+})
 
 // load tasks on page startup
 loadEvents();
