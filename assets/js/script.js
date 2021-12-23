@@ -38,6 +38,8 @@ var saveEvents = function() {
     localStorage.setItem("events", JSON.stringify(events));
 };
 
+
+
 var loadEvents = function() {
     events = JSON.parse(localStorage.getItem("events"));
 
@@ -47,12 +49,10 @@ var loadEvents = function() {
     }
 
     // loop through and fill textareas with values
-    for (i = 0; i < events.length; i++ ) {
+    for (i = 0; i < Object.keys(events).length; i++ ) {
         var eventId = "#event-input-" + events[i][0].id;
         var eventText = events[i][0].text;
         $(eventId).val(eventText);
-        console.log(eventId);
-        console.log(eventText);
     }
 }
 
