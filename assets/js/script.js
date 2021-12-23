@@ -1,9 +1,7 @@
 var events = {};
 
-// TODO: Display date at the top of the calendar
-    // use moment.js to display time in correct format
-    // refresh page every 20 or so min
-    // Ex: Thursday, September 5th
+// current date display on top
+$("#currentDay").text(moment().format("dddd, MMMM Do"));
 
 $(".saveBtn").on("click", function() {
     // retrieve button's data-id value
@@ -48,14 +46,34 @@ var loadEvents = function() {
         events = {};
     }
 
-    // loop through and fill textareas with values
-    for (i = 0; i < Object.keys(events).length; i++ ) {
-        var eventId = "#event-input-" + events[i][0].id;
-        var eventText = events[i][0].text;
+    for (var key in events) {
+        var eventId = "#event-input-" + events[key][0].id;
+        var eventText = events[key][0].text;
         $(eventId).val(eventText);
     }
+    // $(events).each(function(key, value) {
+    //     var eventId = "#event-input-" + events[key][0].id;
+    //     console.log(eventId);
+    //     $(eventId).val(value);
+    // })
+    // // loop through and fill textareas with values
+    // for (i = 0; i < Object.keys(events).length; i++ ) {
+    //     var eventId = "#event-input-" + events[i][0].id;
+    //     if (eventId === undefined) {
+    //         console.log("oops!");
+    //     }
+    //     var eventText = events[i][0].text;
+    //     $(eventId).val(eventText);
+    // }
 }
 
+
+var currentHour = moment().get("hour");
+console.log(currentHour);
+var hourBlock = $("textarea").attr("data-time");
+console.log(hourBlock);
+
+for (i = 0; i < 8; i++);
 // TODO: color code time intervals based on current time
     // css has the proper stylings
     // moment.js functionality?
