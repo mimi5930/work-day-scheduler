@@ -4,10 +4,10 @@ A website that uses third-party-APIs such as JQUERY, Moment.js, and Bootstrap to
 ## Built With
 - HTML
 - CSS
-- Bootstrap
+    - Bootstrap
 - JavaScript
-- JQUERY
-- Moment.js
+    - JQUERY
+    - Moment.js
 ## Website
 https://mimi5930.github.io/work-day-scheduler/
 
